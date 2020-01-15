@@ -1,0 +1,100 @@
+name:        zkp
+version:     0.1.0
+synopsis:    Zero Knowledge Proof Protocol
+description: Zero Knowledge Proof Protocol
+homepage:    https://github.com/adjoint-io/zkp#readme
+author:      Adjoint Inc.
+license:     AllRightsReserved
+maintainer:  stephen@adjoint.io
+copyright:   2016-2020 Adjoint Inc
+category:    Cryptography
+
+extra-source-files:
+  - README.md
+  - ChangeLog.md
+
+default-extensions:
+  - NoImplicitPrelude
+  - OverloadedStrings
+  - StandaloneDeriving
+  - GADTs
+dependencies:
+  # Base
+  - base        >= 4.12  && <4.14
+  - protolude   >= 0.2.4 && <0.3
+  - text        >= 1.2   && <2.0
+  - vector
+  - bytestring
+  - containers
+  - mtl
+  - aeson
+  - directory
+  - filepath
+
+  # Algebra
+  - semirings
+  - groups
+  - poly
+
+  # Cryptography
+  - galois-field
+  - galois-fft
+  - elliptic-curve
+  - pairing
+  - arithmetic-circuits
+  - crypto-numbers
+  - SHA
+  - entropy
+
+  # Libraries
+  - criterion
+  - generic-arbitrary
+  - QuickCheck
+  - wl-pprint-text
+  - pretty-simple
+
+library:
+  source-dirs: src
+  exposed-modules:
+    - Protocol.Groth
+  other-modules:
+    - Poly
+
+tests:
+  test-zkp:
+    main: Test.hs
+    source-dirs:
+      - test
+    dependencies:
+      - zkp
+      - QuickCheck
+      - tasty
+      - tasty-discover
+      - tasty-hunit
+      - tasty-quickcheck
+    ghc-options:
+      - -Wall
+      - -Wno-name-shadowing
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N
+
+executables:
+  zkp:
+    main: Main.hs
+    source-dirs: exe
+    other-modules: 
+      - Setup
+      - Prove
+      - Verify
+      - Reference
+    dependencies:
+      - zkp
+      - galois-field
+      - optparse-applicative
+    ghc-options:
+      - -Wall
+      - -Wno-name-shadowing
+      - -threaded
+      - -rtsopts
+      - -with-rtsopts=-N

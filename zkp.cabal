@@ -1,0 +1,148 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: a2bf6ce23a816c04e535356f7d62ea261aafdbf47ac012b639f32a1bed19f8eb
+
+name:           zkp
+version:        0.1.0
+synopsis:       Zero Knowledge Proof Protocol
+description:    Zero Knowledge Proof Protocol
+category:       Cryptography
+homepage:       https://github.com/adjoint-io/zkp#readme
+author:         Adjoint Inc.
+maintainer:     stephen@adjoint.io
+copyright:      2016-2020 Adjoint Inc
+license:        AllRightsReserved
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+library
+  exposed-modules:
+      Protocol.Groth
+  other-modules:
+      Poly
+  hs-source-dirs:
+      src
+  default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
+  build-depends:
+      QuickCheck
+    , SHA
+    , aeson
+    , arithmetic-circuits
+    , base >=4.12 && <4.14
+    , bytestring
+    , containers
+    , criterion
+    , crypto-numbers
+    , directory
+    , elliptic-curve
+    , entropy
+    , filepath
+    , galois-fft
+    , galois-field
+    , generic-arbitrary
+    , groups
+    , mtl
+    , pairing
+    , poly
+    , pretty-simple
+    , protolude >=0.2.4 && <0.3
+    , semirings
+    , text >=1.2 && <2.0
+    , vector
+    , wl-pprint-text
+  default-language: Haskell2010
+
+executable zkp
+  main-is: Main.hs
+  other-modules:
+      Setup
+      Prove
+      Verify
+      Reference
+  hs-source-dirs:
+      exe
+  default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
+  ghc-options: -Wall -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , SHA
+    , aeson
+    , arithmetic-circuits
+    , base >=4.12 && <4.14
+    , bytestring
+    , containers
+    , criterion
+    , crypto-numbers
+    , directory
+    , elliptic-curve
+    , entropy
+    , filepath
+    , galois-fft
+    , galois-field
+    , generic-arbitrary
+    , groups
+    , mtl
+    , optparse-applicative
+    , pairing
+    , poly
+    , pretty-simple
+    , protolude >=0.2.4 && <0.3
+    , semirings
+    , text >=1.2 && <2.0
+    , vector
+    , wl-pprint-text
+    , zkp
+  default-language: Haskell2010
+
+test-suite test-zkp
+  type: exitcode-stdio-1.0
+  main-is: Test.hs
+  other-modules:
+      Test.Arithmetic
+      Test.Groth
+      Test.Poly
+      Paths_zkp
+  hs-source-dirs:
+      test
+  default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
+  ghc-options: -Wall -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      QuickCheck
+    , SHA
+    , aeson
+    , arithmetic-circuits
+    , base >=4.12 && <4.14
+    , bytestring
+    , containers
+    , criterion
+    , crypto-numbers
+    , directory
+    , elliptic-curve
+    , entropy
+    , filepath
+    , galois-fft
+    , galois-field
+    , generic-arbitrary
+    , groups
+    , mtl
+    , pairing
+    , poly
+    , pretty-simple
+    , protolude >=0.2.4 && <0.3
+    , semirings
+    , tasty
+    , tasty-discover
+    , tasty-hunit
+    , tasty-quickcheck
+    , text >=1.2 && <2.0
+    , vector
+    , wl-pprint-text
+    , zkp
+  default-language: Haskell2010

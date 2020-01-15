@@ -1,0 +1,17 @@
+.stack-work/
+*.sw[pon]
+*.prof
+*.prof.html
+*~
+*.hi
+*.o
+.ghc.environment.*
+dist*/
+TAGS
+setupdir
+proofdir
+zkp
+*.liquid
+dist-newstyle
+outputdir
+stack.yaml.lock

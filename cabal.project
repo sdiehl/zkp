@@ -1,0 +1,13 @@
+packages: .
+
+source-repository-package
+  type: git
+  location: https://github.com/adjoint-io/arithmetic-circuits
+
+source-repository-package
+  type: git
+  location: https://github.com/adjoint-io/galois-fft
+
+source-repository-package
+  type: git
+  location: https://github.com/adjoint-io/shamir

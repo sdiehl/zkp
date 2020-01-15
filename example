@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+zkp setup --input samples/example1.json --prover Groth16 -o outputdir --hardware
+zkp prove --input samples/example1.json -d outputdir --inputs samples/inputs1.json --pi outputdir/pi
+zkp verify -d outputdir --inputs samples/inputs1.json --pi outputdir/pi
+echo $?

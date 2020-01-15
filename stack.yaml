@@ -1,0 +1,18 @@
+resolver: lts-14.10
+extra-deps:
+  - protolude-0.2.4
+  - arithmoi-0.8.0.0
+  - bitwise-1.0.0.1
+  - bulletproofs-1.1.0
+  - crypto-numbers-0.2.7
+  - data-default-instances-base-0.1.0.1
+  - elliptic-curve-0.3.0
+  - galois-field-1.0.0
+  - pairing-1.0.0
+  - poly-0.3.2.0
+  - semirings-0.5.1
+  - table-layout-0.8.0.3
+  - galois-fft-0.1.0
+  - vector-algorithms-0.8.0.3
+  - git: https://github.com/adjoint-io/arithmetic-circuits.git
+    commit: 0272b8c4f28f729f16bbdaa008fdd0a565a35662
