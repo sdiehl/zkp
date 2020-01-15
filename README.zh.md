@@ -14,9 +14,8 @@
 * [🇨🇳中文](./README.zh.md)
 * [🇩🇪Deutsch](./README.de.md)
 
-ZKP是一种实用的零知识证明系统，可提供任意计算的小型且计算效率高的零知识证明。
+ZKP是一种实用的零知识证明系统，可提供为任意计算提供小型、计算效率高的零知识证明。
 该系统使我们能够以廉价且快速的验证时间构造简洁的非交互式证明。
-下图描述了证明生成系统的拓扑。
 
 该协议允许不受信任的各方彼此进行交易，而无需共享信息。
 
@@ -31,30 +30,31 @@ ZKP是一种实用的零知识证明系统，可提供任意计算的小型且�
 ## 编译步骤
 
 * 电路构造
-* 值得信赖的设置
-* 证明制作
+* 可信设置
+* 证明生成
 * 证明验证
 
 <!-- Program Construction -->
-## 程序建设
+## 程序构造
 
-程序构建是由其他库开发的，这些库发出标准的JSON协议，该协议描述了门的功能组成，这些门计算加法，乘法和带导线的算术运算。
-该库可以简单地使用任何其他编译器或库来发出JSON作为其交换格式。
+程序构造是由其他库开发的，这些库产生一个标准的JSON协议文件，该文件描述了门的功能组成，这些门计算加法，乘法和导线的算术运算。
+
+该库可以直接使用任何其他以JSON作为其交换格式编译器或库。
 
 算术电路包提供了电路构造语言的参考库。
 
 [arithmetic-circuits](https://www.github.com/adjoint-io/arithmetic-circuits)
 
 <!-- Trusted Setup -->
-## 受信任的设置
+## 可信设置
 
-可以从命令行运行受信任的设置。 这将生成为特定电路设置所需的一次参数。 设置参数可以随后销毁，也可以在Shamir秘密共享配置中分发。 Shamir共享允许一个n-of-m的设置，其中至少n个参与者必须组合其秘密部分以重建受信任的设置。
+可以从命令行运行可信设置。 这将生成特定电路设置所需的一次参数。 设置参数可以随后销毁，也可以在Shamir秘密共享配置中分发。 Shamir共享允许一个n-of-m的设置，其中至少需要n个参与者组合其秘密部分以重建可信设置。
 
 ```bash
-zkp setup --prover Groth16 --input samples/example1.json -o setupdir 
+zkp setup --prover Groth16 --input samples/example1.json -o setupdir
 ```
 
-这将在setupdir目录中生成受信任的设置参数。 来自BN254椭圆曲线的素数场Fr的这五个随机参数（α，β，𝛾，δ，x）。
+这将在setupdir目录中生成可信设置参数，即BN254椭圆曲线的素数域Fr中的五个随机参数（α，β，𝛾，δ，x）。
 
 ```haskell
 RandomSetup
@@ -71,12 +71,12 @@ RandomSetup
   }
 ```
 
-如果您希望使用内核中的硬件熵来执行随机生成，请在受信任的设置过程中传递--hardware标志。
+如果您希望使用内核中的硬件熵来执行随机生成，请在可信设置过程中传递--hardware标识标志。
 
 <!-- Trusted Proof Generation -->
 ## 证明生成
 
-对于给定的一组有效输入（-a），这将在输出目录内部生成证明项pi。 如果使用给定的可信设置和专用输入对电路进行评估，则其中包含简洁的零知识证明。
+对于给定的一组有效输入（``--inputs``），将在输出目录内部生成证明文件pi。 给定可信设置和程序输入对电路进行求值，将生成简洁的零知识证明。
 
 ```bash
 zkp prove --input samples/example1.json -d setupdir --inputs samples/inputs1.json --pi proof
@@ -127,7 +127,7 @@ zkp verify -d setupdir --inputs samples/inputs1.json --pi proof
 * BN254
 
 <!-- Building from Source -->
-## 从源头建造
+## 从源代码编译
 
 该库在Haskell编译器的8.x上编译。 要安装GHC，请使用[ghcup](https://www.haskell.org/ghcup/)。
 
@@ -144,7 +144,7 @@ cabal new-install --installdir=.
 cp ./zkp ~/.local/bin
 ```
 
-另外，您可以使用[Stack](https://docs.haskellstack.org/en/stable/README/)使用以下命令构建库：
+另外，您可以使用[Stack](https://docs.haskellstack.org/en/stable/README/)和如下命令构建库：
 
 ```bash
 cd zkp
@@ -152,9 +152,9 @@ stack install
 ```
 
 <!-- Docker Images -->
-## Docker映像
+## Docker镜像
 
-可以在Docker映像内部构建和运行zkp可执行文件：
+可以在Docker镜像内构建和运行zkp可执行文件：
 
 ```bash
 $ docker build -t zkp .
@@ -167,7 +167,7 @@ $ docker run -ti zkp /bin/bash
 
 *这是可选步骤，仅适用于开发人员。*
 
-ZKP通过精化类型丰富了一系列规范，这些规范可以在LiquidHaskell框架中进行检查。 LiquidHaskell分析模块，并向SMT求解器履行证明义务，以查看条件是否可满足。 这使我们能够证明在内存安全性，算术异常和信息流方面不存在一系列错误。
+一系列关于refinement types的规范丰富了ZKP，这些refinement types可以在LiquidHaskell框架中进行检查。 LiquidHaskell分析模块，并将证明义务交给SMT求解器，以查看条件是否可满足。 这使我们能够证明在内存安全性，算术异常和信息流方面不存在一系列错误。
 
 您将需要Microsoft Research [Z3 SMT](https://github.com/Z3Prover/z3)求解器或Stanford [CVC4 SMT](https://cvc4.github.io/)求解器。
 
@@ -197,7 +197,7 @@ stack install liquidhaskell
 
 ```bash
 liquid -f --cabaldir -i src -i spec src/Poly.hs
-liquid -f --cabaldir -i src -i spec src/Protocol/Groth.hs 
+liquid -f --cabaldir -i src -i spec src/Protocol/Groth.hs
 ```
 
 <!-- Dependencies -->
