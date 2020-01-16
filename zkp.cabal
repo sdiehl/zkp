@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 0d15a0997cae8994256a3e25feb068300cfd0559e8b701382f255eaf29c758e0
+-- hash: 4380014159c31ad26fb39c85d6627e4b355fb6c8d65444cf6d8ac4724550ad25
 
 name:           zkp
 version:        0.1.0
@@ -31,14 +31,14 @@ library
       src
   default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
   build-depends:
-      QuickCheck >=2.13.2 && <2.14
+      QuickCheck >=2.12.0 && <2.14
     , SHA >=1.6.4 && <1.7
     , aeson >=1.4.0 && <1.5
     , arithmetic-circuits >=0.2.0 && <0.3
     , base >=4.12 && <4.14
     , bytestring >=0.10.8 && <0.11
     , containers >=0.6.0 && <0.7
-    , criterion >=1.5.6 && <1.6
+    , criterion >=1.5.0 && <1.6
     , crypto-numbers >=0.2.7 && <0.3
     , directory >=1.3.3 && <1.4
     , elliptic-curve >=0.3.0 && <0.4
@@ -71,14 +71,14 @@ executable zkp
   default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
   ghc-options: -Wall -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      QuickCheck >=2.13.2 && <2.14
+      QuickCheck >=2.12.0 && <2.14
     , SHA >=1.6.4 && <1.7
     , aeson >=1.4.0 && <1.5
     , arithmetic-circuits >=0.2.0 && <0.3
     , base >=4.12 && <4.14
     , bytestring >=0.10.8 && <0.11
     , containers >=0.6.0 && <0.7
-    , criterion >=1.5.6 && <1.6
+    , criterion >=1.5.0 && <1.6
     , crypto-numbers >=0.2.7 && <0.3
     , directory >=1.3.3 && <1.4
     , elliptic-curve >=0.3.0 && <0.4
@@ -121,7 +121,7 @@ test-suite test-zkp
     , base >=4.12 && <4.14
     , bytestring >=0.10.8 && <0.11
     , containers >=0.6.0 && <0.7
-    , criterion >=1.5.6 && <1.6
+    , criterion >=1.5.0 && <1.6
     , crypto-numbers >=0.2.7 && <0.3
     , directory >=1.3.3 && <1.4
     , elliptic-curve >=0.3.0 && <0.4
