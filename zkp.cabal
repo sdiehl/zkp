@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a2bf6ce23a816c04e535356f7d62ea261aafdbf47ac012b639f32a1bed19f8eb
+-- hash: 0d15a0997cae8994256a3e25feb068300cfd0559e8b701382f255eaf29c758e0
 
 name:           zkp
 version:        0.1.0
@@ -31,32 +31,32 @@ library
       src
   default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
   build-depends:
-      QuickCheck
-    , SHA
-    , aeson
-    , arithmetic-circuits
+      QuickCheck >=2.13.2 && <2.14
+    , SHA >=1.6.4 && <1.7
+    , aeson >=1.4.0 && <1.5
+    , arithmetic-circuits >=0.2.0 && <0.3
     , base >=4.12 && <4.14
-    , bytestring
-    , containers
-    , criterion
-    , crypto-numbers
-    , directory
-    , elliptic-curve
-    , entropy
-    , filepath
-    , galois-fft
-    , galois-field
-    , generic-arbitrary
-    , groups
-    , mtl
-    , pairing
-    , poly
-    , pretty-simple
+    , bytestring >=0.10.8 && <0.11
+    , containers >=0.6.0 && <0.7
+    , criterion >=1.5.6 && <1.6
+    , crypto-numbers >=0.2.7 && <0.3
+    , directory >=1.3.3 && <1.4
+    , elliptic-curve >=0.3.0 && <0.4
+    , entropy >=0.4.1 && <0.5
+    , filepath >=1.4.2 && <1.5
+    , galois-fft >=0.1.0 && <0.2
+    , galois-field >=1.0.0 && <1.1
+    , generic-arbitrary >=0.1.0 && <0.2
+    , groups >=0.4.1 && <0.5
+    , mtl >=2.2.2 && <2.3
+    , pairing >=1.0.0 && <1.1
+    , poly >=0.3.2 && <0.4
+    , pretty-simple >=2.0 && <3.3
     , protolude >=0.2.4 && <0.3
-    , semirings
+    , semirings >=0.5.0 && <0.6
     , text >=1.2 && <2.0
-    , vector
-    , wl-pprint-text
+    , vector >=0.12.0 && <0.13
+    , wl-pprint-text >=1.2.0 && <1.3
   default-language: Haskell2010
 
 executable zkp
@@ -71,33 +71,33 @@ executable zkp
   default-extensions: NoImplicitPrelude OverloadedStrings StandaloneDeriving GADTs
   ghc-options: -Wall -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      QuickCheck
-    , SHA
-    , aeson
-    , arithmetic-circuits
+      QuickCheck >=2.13.2 && <2.14
+    , SHA >=1.6.4 && <1.7
+    , aeson >=1.4.0 && <1.5
+    , arithmetic-circuits >=0.2.0 && <0.3
     , base >=4.12 && <4.14
-    , bytestring
-    , containers
-    , criterion
-    , crypto-numbers
-    , directory
-    , elliptic-curve
-    , entropy
-    , filepath
-    , galois-fft
+    , bytestring >=0.10.8 && <0.11
+    , containers >=0.6.0 && <0.7
+    , criterion >=1.5.6 && <1.6
+    , crypto-numbers >=0.2.7 && <0.3
+    , directory >=1.3.3 && <1.4
+    , elliptic-curve >=0.3.0 && <0.4
+    , entropy >=0.4.1 && <0.5
+    , filepath >=1.4.2 && <1.5
+    , galois-fft >=0.1.0 && <0.2
     , galois-field
-    , generic-arbitrary
-    , groups
-    , mtl
+    , generic-arbitrary >=0.1.0 && <0.2
+    , groups >=0.4.1 && <0.5
+    , mtl >=2.2.2 && <2.3
     , optparse-applicative
-    , pairing
-    , poly
-    , pretty-simple
+    , pairing >=1.0.0 && <1.1
+    , poly >=0.3.2 && <0.4
+    , pretty-simple >=2.0 && <3.3
     , protolude >=0.2.4 && <0.3
-    , semirings
+    , semirings >=0.5.0 && <0.6
     , text >=1.2 && <2.0
-    , vector
-    , wl-pprint-text
+    , vector >=0.12.0 && <0.13
+    , wl-pprint-text >=1.2.0 && <1.3
     , zkp
   default-language: Haskell2010
 
@@ -115,34 +115,34 @@ test-suite test-zkp
   ghc-options: -Wall -Wno-name-shadowing -threaded -rtsopts -with-rtsopts=-N
   build-depends:
       QuickCheck
-    , SHA
-    , aeson
-    , arithmetic-circuits
+    , SHA >=1.6.4 && <1.7
+    , aeson >=1.4.0 && <1.5
+    , arithmetic-circuits >=0.2.0 && <0.3
     , base >=4.12 && <4.14
-    , bytestring
-    , containers
-    , criterion
-    , crypto-numbers
-    , directory
-    , elliptic-curve
-    , entropy
-    , filepath
-    , galois-fft
-    , galois-field
-    , generic-arbitrary
-    , groups
-    , mtl
-    , pairing
-    , poly
-    , pretty-simple
+    , bytestring >=0.10.8 && <0.11
+    , containers >=0.6.0 && <0.7
+    , criterion >=1.5.6 && <1.6
+    , crypto-numbers >=0.2.7 && <0.3
+    , directory >=1.3.3 && <1.4
+    , elliptic-curve >=0.3.0 && <0.4
+    , entropy >=0.4.1 && <0.5
+    , filepath >=1.4.2 && <1.5
+    , galois-fft >=0.1.0 && <0.2
+    , galois-field >=1.0.0 && <1.1
+    , generic-arbitrary >=0.1.0 && <0.2
+    , groups >=0.4.1 && <0.5
+    , mtl >=2.2.2 && <2.3
+    , pairing >=1.0.0 && <1.1
+    , poly >=0.3.2 && <0.4
+    , pretty-simple >=2.0 && <3.3
     , protolude >=0.2.4 && <0.3
-    , semirings
+    , semirings >=0.5.0 && <0.6
     , tasty
     , tasty-discover
     , tasty-hunit
     , tasty-quickcheck
     , text >=1.2 && <2.0
-    , vector
-    , wl-pprint-text
+    , vector >=0.12.0 && <0.13
+    , wl-pprint-text >=1.2.0 && <1.3
     , zkp
   default-language: Haskell2010
