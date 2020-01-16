@@ -1,0 +1,5 @@
+--command "stack repl"
+--warnings
+--restart package.yaml 
+--restart stack.yaml 
+--restart cabal.project 

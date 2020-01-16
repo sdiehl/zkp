@@ -1,0 +1,15 @@
+:seti -XNoImplicitPrelude
+:seti -XFlexibleContexts 
+:seti -XOverloadedStrings
+import Protolude
+
+-- Pretty-printing
+:set -ignore-package pretty-simple -package pretty-simple
+:def! pretty \ _ -> pure ":set -interactive-print Text.Pretty.Simple.pPrint"
+
+-- Better errors
+:set -ferror-spans -freverse-errors -fprint-expanded-synonyms
+
+:pretty
+:set prompt "\ESC[38;5;208m\STXλ>\ESC[m\STX "
+:set -isrc
